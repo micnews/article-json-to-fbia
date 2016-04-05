@@ -1,5 +1,5 @@
 {
-  "name": "article-json-to-instant-articles",
+  "name": "article-json-to-fbia",
   "version": "0.0.0",
   "description": "transform article-json to instant-articles",
   "main": "dist/main.js",
@@ -36,7 +36,8 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "article-json-html-render": "^1.0.0",
-    "deku": "^2.0.0-rc16"
+    "article-json-html-render": "^1.1.0",
+    "deku": "^2.0.0-rc16",
+    "object-assign": "^4.0.1"
   }
 }
