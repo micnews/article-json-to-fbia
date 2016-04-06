@@ -2,10 +2,12 @@
   "name": "article-json-to-fbia",
   "version": "0.0.0",
   "description": "transform article-json to Facebook's instant-articles",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "ava && semistandard | snazzy",
-    "prepublish": "mkdir -p dist && babel lib --out-dir dist"
+    "build": "rm -rf dist && babel lib --out-dir dist",
+    "watch": "rm -rf dist && babel lib -w --out-dir dist",
+    "prepublish": "mkdir -p dist && npm run build"
   },
   "repository": {
     "type": "git",
