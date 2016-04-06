@@ -1,7 +1,7 @@
 {
   "name": "article-json-to-fbia",
   "version": "0.0.0",
-  "description": "transform article-json to instant-articles",
+  "description": "transform article-json to Facebook's instant-articles",
   "main": "dist/main.js",
   "scripts": {
     "test": "ava && semistandard | snazzy",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/micnews/article-json-to-instant-articles.git"
+    "url": "git+https://github.com/micnews/article-json-to-fbia.git"
   },
   "keywords": [
     "instant",
@@ -19,9 +19,9 @@
   "author": "mic.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/micnews/article-json-to-instant-articles/issues"
+    "url": "https://github.com/micnews/article-json-to-fbia/issues"
   },
-  "homepage": "https://github.com/micnews/article-json-to-instant-articles#readme",
+  "homepage": "https://github.com/micnews/article-json-to-fbia#readme",
   "devDependencies": {
     "ava": "^0.13.0",
     "babel-cli": "^6.6.5",
