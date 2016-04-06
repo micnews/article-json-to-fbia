@@ -26,7 +26,8 @@ test('blocks', t => {
     ]
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data);
+  const expected = tsml
     `<article>
       <p>
         <a href="http://mic.com">link</a>
@@ -35,8 +36,9 @@ test('blocks', t => {
       </p>
       <p>other text</p>
       <h3>header text</h3>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('headers', t => {
@@ -60,7 +62,8 @@ test('headers', t => {
     children: [{ type: 'text', content: 'header6' }]
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data);
+  const expected = tsml
     `<article>
       <h1>header1</h1>
       <h2>header2</h2>
@@ -68,8 +71,9 @@ test('headers', t => {
       <h4>header4</h4>
       <h5>header5</h5>
       <h6>header6</h6>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('embeds', t => {
@@ -90,17 +94,19 @@ test('embeds', t => {
     height: 200
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data);
+  const expected = tsml
     `<article>
       <p>normal text</p>
       <figure data-feedback="fb:likes,fb:comments">
-        <iframe allowfullscreen="true" frameborder="0" height="480" scrolling="no" src="https://www.youtube.com/embed/abc" width="640"></iframe>
+        <iframe src="https://www.youtube.com/embed/abc" width="640" height="480" frameborder="0" allowfullscreen="true"></iframe>
       </figure>
       <figure data-type="image" data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
       </figure>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('image with caption', t => {
@@ -125,14 +131,16 @@ test('image with caption', t => {
     }]
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data)
+  const expected = tsml
     `<article>
-      <figure>
+      <figure data-type="image" data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
         <figcaption>Source: <a href="http://example.com/author">Author</a></figcaption>
       </figure>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('blockquote', t => {
@@ -154,14 +162,16 @@ test('blockquote', t => {
     }]
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data);
+  const expected = tsml
     `<article>
       <blockquote>
         <p>abc</p>
         <p><b>def</b></p>
       </blockquote>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('custom secure iframe', t => {
@@ -175,13 +185,15 @@ test('custom secure iframe', t => {
     caption: []
   }];
 
-  t.is(toFbia(data), tsml
+  const actual = toFbia(data);
+  const expected = tsml
     `<article>
       <figure>
-        <amp-iframe width="600" height="200" layout="responsive" frameborder="0" src="https://example.com/frame"></amp-iframe>
+        <iframe src="https://example.com/frame" width="600" height="200" frameborder="0"></iframe>
       </figure>
-    </article>`
-  );
+    </article>`;
+
+  t.is(actual, expected);
 });
 
 test('custom non-secure iframe', t => {
@@ -195,7 +207,10 @@ test('custom non-secure iframe', t => {
     caption: []
   }];
 
-  t.is(toFbia(data), `<article><figure></figure></article>`);
+  const actual = toFbia(data);
+  const expected = `<article><figure></figure></article>`;
+
+  t.is(actual, expected);
 });
 
 test('formatItems', t => {
