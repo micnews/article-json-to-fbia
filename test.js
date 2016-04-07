@@ -99,7 +99,7 @@ test('embeds', t => {
     `<article>
       <p>normal text</p>
       <figure data-feedback="fb:likes,fb:comments">
-        <iframe src="https://www.youtube.com/embed/abc" width="640" height="480" frameborder="0" allowfullscreen="true"></iframe>
+        <iframe src="https://www.youtube.com/embed/abc" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>
       </figure>
       <figure data-type="image" data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
@@ -131,7 +131,7 @@ test('image with caption', t => {
     }]
   }];
 
-  const actual = toFbia(data)
+  const actual = toFbia(data);
   const expected = tsml
     `<article>
       <figure data-type="image" data-feedback="fb:likes,fb:comments">
