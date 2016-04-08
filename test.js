@@ -189,7 +189,7 @@ test('vine', t => {
   const expected = tsml`
     <article>
       <figure data-feedback="fb:likes,fb:comments" class="op-social">
-        <iframe src="https://vine.co/v/bjHh0zHdgZT/embed/simple" width="600" height="600" frameborder="0"></iframe>
+        <iframe src="https://vine.co/v/bjHh0zHdgZT/embed/simple" width="480" height="480" frameborder="0"></iframe>
       </figure>
     </article>
   `;
