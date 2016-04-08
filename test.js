@@ -196,6 +196,40 @@ test('vine', t => {
   t.is(actual, expected);
 });
 
+test('instagram', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'instagram',
+    url: 'https://www.instagram.com/p/-7PIhyA6J3/'
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+        <iframe src="https://www.instagram.com/p/-7PIhyA6J3/embed"></iframe>
+      </figure>
+    </article>
+  `;
+  t.is(actual.slice(0, 100), expected.slice(0, 100));
+});
+
+test('instagram, small diff in url', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'instagram',
+    url: 'https://www.instagram.com/p/-7PIhyA6J3'
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+        <iframe src="https://www.instagram.com/p/-7PIhyA6J3/embed"></iframe>
+      </figure>
+    </article>
+  `;
+  t.is(actual, expected);
+});
+
 test('blockquote', t => {
   const data = [{
     type: 'blockquote',
