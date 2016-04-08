@@ -167,7 +167,7 @@ test('twitter', t => {
   const actual = toFbia(input);
   const expected = tsml`
     <article>
-      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+      <figure class="op-social">
         <iframe>
           <blockquote class="twitter-tweet" lang="en">
             <p lang="en" dir="ltr">GIF vs. JIF… This <a href="https://t.co/qFAHWgdbL6">pic.twitter.com/qFAHWgdbL6</a></p>&mdash; Matt (foo) Navarra (@MattNavarra) <a href="https://twitter.com/MattNavarra/status/684690494841028608">January 6, 2016</a>
