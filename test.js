@@ -179,6 +179,23 @@ test('twitter', t => {
   t.is(actual, expected);
 });
 
+test('vine', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'vine',
+    url: 'https://vine.co/v/bjHh0zHdgZT/embed/simple'
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+        <iframe src="https://vine.co/v/bjHh0zHdgZT/embed/simple" width="600" height="600" frameborder="0"></iframe>
+      </figure>
+    </article>
+  `;
+  t.is(actual, expected);
+});
+
 test('blockquote', t => {
   const data = [{
     type: 'blockquote',
