@@ -109,6 +109,37 @@ test('embeds', t => {
   t.is(actual, expected);
 });
 
+test('twitter', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'twitter',
+    text: [
+      {content: 'GIF vs. JIF… This ', href: null},
+      {content: 'pic.twitter.com/qFAHWgdbL6', href: 'https://t.co/qFAHWgdbL6'}
+    ],
+    url: 'https://twitter.com/MattNavarra/status/684690494841028608',
+    date: 'January 6, 2016',
+    user: {
+      slug: 'MattNavarra',
+      name: 'Matt (foo) Navarra'
+    },
+    id: '684690494841028608'
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+        <iframe>
+          <blockquote class="twitter-tweet" lang="en">
+            <p lang="en" dir="ltr">GIF vs. JIF… This <a href="https://t.co/qFAHWgdbL6">pic.twitter.com/qFAHWgdbL6</a></p>&mdash; Matt (foo) Navarra (@MattNavarra) <a href="https://twitter.com/MattNavarra/status/684690494841028608">January 6, 2016</a>
+          </blockquote>
+          <script async="true" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </iframe>
+      </figure>
+    </article>`;
+  t.is(actual, expected);
+});
+
 test('image with caption', t => {
   const data = [{
     type: 'embed',
