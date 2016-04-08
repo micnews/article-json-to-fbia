@@ -76,17 +76,8 @@ test('headers', t => {
   t.is(actual, expected);
 });
 
-test('embeds', t => {
+test('image', t => {
   const data = [{
-    type: 'paragraph',
-    children: [
-      { type: 'text', content: 'normal text' }
-    ]
-  }, {
-    type: 'embed',
-    embedType: 'youtube',
-    youtubeId: 'abc'
-  }, {
     type: 'embed',
     embedType: 'image',
     src: 'http://example.com/image.jpg',
@@ -97,12 +88,60 @@ test('embeds', t => {
   const actual = toFbia(data);
   const expected = tsml
     `<article>
-      <p>normal text</p>
       <figure data-feedback="fb:likes,fb:comments">
-        <iframe src="https://www.youtube.com/embed/abc" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>
-      </figure>
-      <figure data-type="image" data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
+      </figure>
+    </article>`;
+
+  t.is(actual, expected);
+});
+
+test('image with caption', t => {
+  const data = [{
+    type: 'embed',
+    embedType: 'image',
+    src: 'http://example.com/image.jpg',
+    width: 600,
+    height: 200,
+    caption: [{
+      type: 'text',
+      content: 'Source: ',
+      href: null,
+      italic: false,
+      bold: false
+    }, {
+      type: 'text',
+      content: 'Author',
+      href: 'http://example.com/author',
+      italic: false,
+      bold: false
+    }]
+  }];
+
+  const actual = toFbia(data);
+  const expected = tsml
+    `<article>
+      <figure data-feedback="fb:likes,fb:comments">
+        <img src="http://example.com/image.jpg"></img>
+        <figcaption>Source: <a href="http://example.com/author">Author</a></figcaption>
+      </figure>
+    </article>`;
+
+  t.is(actual, expected);
+});
+
+test('youtube', t => {
+  const data = [{
+    type: 'embed',
+    embedType: 'youtube',
+    youtubeId: 'abc'
+  }];
+
+  const actual = toFbia(data);
+  const expected = tsml
+    `<article>
+      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+        <iframe src="https://www.youtube.com/embed/abc" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>
       </figure>
     </article>`;
 
@@ -137,40 +176,6 @@ test('twitter', t => {
         </iframe>
       </figure>
     </article>`;
-  t.is(actual, expected);
-});
-
-test('image with caption', t => {
-  const data = [{
-    type: 'embed',
-    embedType: 'image',
-    src: 'http://example.com/image.jpg',
-    width: 600,
-    height: 200,
-    caption: [{
-      type: 'text',
-      content: 'Source: ',
-      href: null,
-      italic: false,
-      bold: false
-    }, {
-      type: 'text',
-      content: 'Author',
-      href: 'http://example.com/author',
-      italic: false,
-      bold: false
-    }]
-  }];
-
-  const actual = toFbia(data);
-  const expected = tsml
-    `<article>
-      <figure data-type="image" data-feedback="fb:likes,fb:comments">
-        <img src="http://example.com/image.jpg"></img>
-        <figcaption>Source: <a href="http://example.com/author">Author</a></figcaption>
-      </figure>
-    </article>`;
-
   t.is(actual, expected);
 });
 
@@ -242,20 +247,4 @@ test('custom non-secure iframe', t => {
   const expected = `<article><figure></figure></article>`;
 
   t.is(actual, expected);
-});
-
-test('formatItems', t => {
-  const items = [{
-    type: 'embed',
-    embedType: 'youtube'
-  }];
-  const expected = [{
-    type: 'embed',
-    embedType: 'youtube',
-    figureProps: {
-      'data-feedback': 'fb:likes,fb:comments'
-    }
-  }];
-  const actual = formatItems(items);
-  t.same(actual, expected);
 });
