@@ -122,7 +122,7 @@ test('image with caption', t => {
     `<article>
       <figure data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
-        <figcaption>Source: <a href="http://example.com/author">Author</a></figcaption>
+        <figcaption><cite>Source: <a href="http://example.com/author">Author</a></cite></figcaption>
       </figure>
     </article>`;
 
