@@ -2,7 +2,6 @@ import test from 'ava';
 import tsml from 'tsml';
 import 'babel-core/register';
 import toFbia from './lib';
-import formatItems from './lib/format-items';
 
 test('blocks', t => {
   const data = [{
