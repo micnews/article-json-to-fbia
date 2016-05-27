@@ -1,6 +1,6 @@
 {
   "name": "article-json-to-fbia",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "transform article-json to Facebook's instant-articles",
   "main": "dist/index.js",
   "scripts": {
