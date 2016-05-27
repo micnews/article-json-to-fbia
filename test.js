@@ -195,6 +195,46 @@ test('vine', t => {
   t.is(actual, expected);
 });
 
+test('spotify small', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'spotify',
+    url: 'https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf',
+    spotifyUri: 'spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf',
+    width: 400,
+    height: 80
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure class="op-interactive">
+        <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="80" frameborder="0"></iframe>
+      </figure>
+    </article>
+  `;
+  t.is(actual, expected);
+});
+
+test('spotify large', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'spotify',
+    url: 'https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf',
+    spotifyUri: 'spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf',
+    width: 400,
+    height: 300
+  }];
+  const actual = toFbia(input);
+  const expected = tsml`
+    <article>
+      <figure class="op-interactive">
+        <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0"></iframe>
+      </figure>
+    </article>
+  `;
+  t.is(actual, expected);
+});
+
 test('instagram', t => {
   const input = [{
     type: 'embed',
