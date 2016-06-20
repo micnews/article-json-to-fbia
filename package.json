@@ -40,7 +40,7 @@
   "dependencies": {
     "article-json-html-render": "^1.2.0",
     "deku": "^2.0.0-rc16",
-    "embeds": "^2.4.0",
+    "embeds": "^2.5.0",
     "object-assign": "^4.0.1",
     "url-join": "^1.1.0"
   }
