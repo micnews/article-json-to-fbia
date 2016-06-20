@@ -40,7 +40,7 @@
   "dependencies": {
     "article-json-html-render": "^2.0.0",
     "deku": "^1.0.0",
-    "embeds": "^2.0.0",
+    "embeds": "^2.5.0",
     "magic-virtual-element": "^1.0.6",
     "object-assign": "^4.0.1",
     "url-join": "^1.1.0"
