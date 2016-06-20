@@ -1,6 +1,6 @@
 {
   "name": "article-json-to-fbia",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "transform article-json to Facebook's instant-articles",
   "main": "dist/index.js",
   "scripts": {
@@ -38,9 +38,10 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "article-json-html-render": "^1.2.0",
-    "deku": "^2.0.0-rc16",
+    "article-json-html-render": "^2.0.0",
+    "deku": "^1.0.0",
     "embeds": "^2.5.0",
+    "magic-virtual-element": "^1.0.6",
     "object-assign": "^4.0.1",
     "url-join": "^1.1.0"
   }
