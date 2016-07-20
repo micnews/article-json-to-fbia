@@ -301,6 +301,38 @@ test('blockquote', t => {
   t.is(actual, expected);
 });
 
+test('tumblr embed', t => {
+  const data = [{
+    caption: [],
+    type: 'embed',
+    embedType: 'tumblr',
+    did: '7c08ba46cb75162284770cdee2a59365891a5e18',
+    url: 'https://embed.tumblr.com/embed/post/8_SX4ALNOf1fYyEcjq78YQ/147291233392',
+    text: [{
+      content: 'http://jencita.tumblr.com/post/147291233392/tswiftdaily-taylor-swift-at-lady-cilento',
+      href: 'http://jencita.tumblr.com/post/147291233392/tswiftdaily-taylor-swift-at-lady-cilento'
+    }]
+  }];
+
+  const actual = toFbia(data);
+  const expected = tsml`
+    <article>
+      <figure class="op-interactive">
+        <iframe>
+          <div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/8_SX4ALNOf1fYyEcjq78YQ/147291233392" data-did="7c08ba46cb75162284770cdee2a59365891a5e18">
+            <a href="http://jencita.tumblr.com/post/147291233392/tswiftdaily-taylor-swift-at-lady-cilento">
+              http://jencita.tumblr.com/post/147291233392/tswiftdaily-taylor-swift-at-lady-cilento
+            </a>
+          </div>
+          <script async="true" src="https://secure.assets.tumblr.com/post.js"></script>
+        </iframe>
+      </figure>
+    </article>
+  `;
+
+  t.is(actual, expected);
+});
+
 test('custom secure iframe', t => {
   const data = [{
     type: 'embed',
