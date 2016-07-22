@@ -139,7 +139,7 @@ test('youtube', t => {
   const actual = toFbia(data);
   const expected = tsml
     `<article>
-      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+      <figure data-feedback="fb:likes,fb:comments" class="op-interactive">
         <iframe src="https://www.youtube.com/embed/abc" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>
       </figure>
     </article>`;
@@ -167,7 +167,7 @@ test('twitter', t => {
   const actual = toFbia(input);
   const expected = tsml`
     <article>
-      <figure class="op-social">
+      <figure class="op-interactive">
         <iframe>
           <blockquote class="twitter-tweet" data-lang="en">
             <p lang="en" dir="ltr">GIF vs. JIF… This <a href="https://t.co/qFAHWgdbL6">pic.twitter.com/qFAHWgdbL6</a></p>&mdash; Matt (foo) Navarra (@MattNavarra) <a href="https://twitter.com/MattNavarra/status/684690494841028608">January 6, 2016</a>
@@ -188,7 +188,7 @@ test('vine', t => {
   const actual = toFbia(input);
   const expected = tsml`
     <article>
-      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+      <figure data-feedback="fb:likes,fb:comments" class="op-interactive">
         <iframe src="https://vine.co/v/bjHh0zHdgZT/embed/simple" width="480" height="480" frameborder="0"></iframe>
       </figure>
     </article>
@@ -245,7 +245,7 @@ test('instagram', t => {
   const actual = toFbia(input);
   const expected = tsml`
     <article>
-      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+      <figure data-feedback="fb:likes,fb:comments" class="op-interactive">
         <iframe src="https://www.instagram.com/p/-7PIhyA6J3/embed"></iframe>
       </figure>
     </article>
@@ -262,7 +262,7 @@ test('instagram, small diff in url', t => {
   const actual = toFbia(input);
   const expected = tsml`
     <article>
-      <figure data-feedback="fb:likes,fb:comments" class="op-social">
+      <figure data-feedback="fb:likes,fb:comments" class="op-interactive">
         <iframe src="https://www.instagram.com/p/-7PIhyA6J3/embed"></iframe>
       </figure>
     </article>
