@@ -26,8 +26,7 @@ test('blocks', t => {
   }];
 
   const actual = toFbia(data);
-  const expected = tsml
-    `<article>
+  const expected = tsml`<article>
       <p>
         <a href="http://mic.com">link</a>
         <br/>
@@ -62,8 +61,7 @@ test('headers', t => {
   }];
 
   const actual = toFbia(data);
-  const expected = tsml
-    `<article>
+  const expected = tsml`<article>
       <h1>header1</h1>
       <h2>header2</h2>
       <h3>header3</h3>
@@ -85,8 +83,7 @@ test('image', t => {
   }];
 
   const actual = toFbia(data);
-  const expected = tsml
-    `<article>
+  const expected = tsml`<article>
       <figure data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
       </figure>
@@ -118,8 +115,7 @@ test('image with caption', t => {
   }];
 
   const actual = toFbia(data);
-  const expected = tsml
-    `<article>
+  const expected = tsml`<article>
       <figure data-feedback="fb:likes,fb:comments">
         <img src="http://example.com/image.jpg"></img>
         <figcaption><cite>Source: <a href="http://example.com/author">Author</a></cite></figcaption>
@@ -137,8 +133,7 @@ test('youtube', t => {
   }];
 
   const actual = toFbia(data);
-  const expected = tsml
-    `<article>
+  const expected = tsml`<article>
       <figure data-feedback="fb:likes,fb:comments" class="op-interactive">
         <iframe src="https://www.youtube.com/embed/abc" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>
       </figure>
