@@ -43,6 +43,6 @@
     "embeds": "^2.6.0",
     "magic-virtual-element": "^1.0.6",
     "object-assign": "^4.0.1",
-    "url-join": "^1.1.0"
+    "url-join": "^2.0.2"
   }
 }
